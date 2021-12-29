@@ -1,12 +1,16 @@
+const {requirePath} = require('require-or-mock')
+// if missed, it sets up a mock
+requirePath('.env')
+requirePath('.env.json')
+
 require('dotenv').config()
 require("@nomiclabs/hardhat-waffle");
 require('hardhat-contract-sizer')
 require("@nomiclabs/hardhat-etherscan");
-const {requirePath} = require('require-or-mock')
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
-const envJson = require(requirePath('.env.json'))
+const envJson = require('./.env.json')
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
